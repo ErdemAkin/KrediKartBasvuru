@@ -1,0 +1,14 @@
+
+= Mobil Programlama Dersi Dönem Projesi
+
+== Proje Paydaşları
+* Ali Erdem Akın - 120202001
+* Melike 
+* Büşra Nur Altıntaş
+* Begüm Aydın
+* Bengü Aydın
+* Münevver
+
+== Proje Konusu
+Kredi kartı için başvurmak isteyen kullanıcıların mobil program üzerinden başvurabilmeleri için geliştirilen bu program, basit bir arayüze sahip olarak kullanıcıları rahat ve karmaşadan uzak tutarak başvuru yapmalarını hedefliyor.
+İlk sayfada başvuru yapacak kişiden gereken bilgiler alındıktan sonra butona tıkladıktan sonra arka planda bilgilerin kontrolü yapılacak ve kontrol sonucunda ekrana kabul edildi yada kabul edilmedi yazılacaktır.
