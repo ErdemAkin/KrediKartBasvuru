@@ -5,6 +5,8 @@ import android.os.Bundle;
 //120202001 - Ali Erdem Akın
 
 //130202027 -Büşra Nur ALTINTAŞ
+
+//130202066 Bengü AYDIN
 public class MainActivity extends AppCompatActivity {
 
     @Override
