@@ -1,0 +1,6 @@
+**130202066 Bengü Aydın ** +
+ 
+.Yapılanlar
+* Dosya export edildi.
+* İsim soyisim numaralar girildi. Push işlemi uygulandı.
+
