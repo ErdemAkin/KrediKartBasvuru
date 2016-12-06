@@ -1,0 +1,6 @@
+**130202065 Begüm Aydın ** +
+ 
+.Yapılanlar
+* Export edildi.
+* İsim soyisim numaralar girilip. Push edildi.
+
