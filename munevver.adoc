@@ -1,0 +1,1 @@
+== Export işlemi yapılıp yorum satırı olarak nuamara isim eklendikten sonra push edildi
