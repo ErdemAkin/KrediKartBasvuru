@@ -1,0 +1,5 @@
+130202027 Büşra Nur ALTINTAŞ +
+
+.Yapılanlar
+* Dosyalar Export edildi
+* Yorum satırı eklenip push işlemi yapıldı.

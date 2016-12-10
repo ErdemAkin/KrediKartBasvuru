@@ -1,0 +1,3 @@
+= 120202001 - Ali Erdem Akın
+
+* Proje dosyalarını oluşturdum. Arkadaşlarımı projeye dahil ettim.

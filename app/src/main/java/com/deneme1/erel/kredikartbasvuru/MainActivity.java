@@ -6,6 +6,17 @@ import android.widget.Button;
 import android.widget.EditText;
 
 //120202001 - Ali Erdem Akın
+
+//130202027 -Büşra Nur ALTINTAŞ
+
+//130202066 Bengü AYDIN
+
+//130202034 Melike YÜCEL
+
+//120202081 Münevver TURAN
+//
+
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
