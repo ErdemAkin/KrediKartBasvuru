@@ -7,7 +7,7 @@
 * Büşra Nur Altıntaş
 * Begüm Aydın
 * Bengü Aydın
-* Münevver
+* Münevver Turan - 120202081
 
 == Proje Konusu
 Kredi kartı için başvurmak isteyen kullanıcıların mobil program üzerinden başvurabilmeleri için geliştirilen bu program, basit bir arayüze sahip olarak kullanıcıları rahat ve karmaşadan uzak tutarak başvuru yapmalarını hedefliyor.
