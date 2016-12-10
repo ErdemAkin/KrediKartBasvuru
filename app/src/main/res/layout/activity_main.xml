@@ -10,8 +10,151 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.deneme1.erel.kredikartbasvuru.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="İsim"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="31dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Soyisim"
+                android:ems="10"
+                android:id="@+id/editText2"
+                android:layout_below="@+id/editText"
+                android:layout_alignLeft="@+id/editText"
+                android:layout_alignStart="@+id/editText" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editText3"
+                android:layout_below="@+id/editText2"
+                android:layout_centerHorizontal="true"
+                android:text="Tel. No" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editText4"
+                android:layout_below="@+id/editText3"
+                android:layout_centerHorizontal="true"
+                android:text="2.Tel No" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/editText5"
+                android:layout_below="@+id/editText4"
+                android:layout_centerHorizontal="true"
+                android:text="Email" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/editText6"
+                android:layout_below="@+id/editText5"
+                android:layout_centerHorizontal="true"
+                android:text="Doğum Tarihi" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText7"
+                android:text="Adres"
+                android:layout_alignTop="@+id/scrollView"
+                android:layout_alignRight="@+id/editText6"
+                android:layout_alignEnd="@+id/editText6"
+                android:layout_alignLeft="@+id/editText6"
+                android:layout_alignStart="@+id/editText6"
+                android:layout_weight="3.16"
+                android:inputType="textMultiLine" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/editText8"
+                android:layout_below="@+id/editText7"
+                android:layout_centerHorizontal="true"
+                android:text="İşe Başlama Tarihi" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText9"
+                android:layout_below="@+id/editText8"
+                android:text="Maaş"
+                android:layout_alignRight="@+id/editText8"
+                android:layout_alignEnd="@+id/editText8"
+                android:layout_alignLeft="@+id/editText8"
+                android:layout_alignStart="@+id/editText8" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/editText10"
+                android:layout_below="@+id/editText9"
+                android:text="Medeni Durumu"
+                android:layout_alignRight="@+id/editText12"
+                android:layout_alignEnd="@+id/editText12"
+                android:layout_alignLeft="@+id/editText12"
+                android:layout_alignStart="@+id/editText12" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText11"
+                android:layout_alignBottom="@+id/editText10"
+                android:layout_alignLeft="@+id/editText10"
+                android:layout_alignStart="@+id/editText10"
+                android:text="Eşin Maaşı" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText12"
+                android:layout_below="@+id/editText10"
+                android:layout_centerHorizontal="true"
+                android:text="Aile Fert Sayısı" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GÖNDER"
+                android:id="@+id/button"
+                android:layout_below="@+id/editText12"
+                android:layout_centerHorizontal="true" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
