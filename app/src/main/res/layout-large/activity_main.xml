@@ -20,20 +20,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="20dp">
+            android:layout_margin="30dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="KREDİ KARTI BAŞVURU FORMU"
-                android:textSize="18sp"
+                android:textSize="28sp"
                 android:gravity="center"
+                android:layout_margin="15dp"
                 android:textColor="#660066"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Adınız Soyadınız:"
-                android:textColor="@color/siyah"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
 
 
                 />
@@ -41,84 +43,108 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Buraya giriniz"
-                android:id="@+id/etAdi" />
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:id="@+id/etAdi"  />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/siyah"
+                android:textSize="20sp"
                 android:text="T.C. KİMLİK NUMARASI:"
+                android:layout_margin="5dp"
 
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
                 android:hint="Buraya giriniz"
+                android:layout_margin="5dp"
                 android:id="@+id/etTc" />
             <TextView
                 android:layout_width="match_parent"
-                android:textColor="@color/siyah"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
                 android:text="Cinsiyet"
-
+                android:layout_marginTop="15dp"
+                android:layout_margin="5dp"
                 />
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:textSize="18sp"
                 android:layout_gravity="center"
                 android:id="@+id/rgroup"
+                android:layout_margin="5dp"
                 >
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KADIN"
+                    android:textSize="18sp"
                     android:id="@+id/rbutton1"
+                    android:layout_margin="5dp"
                     />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ERKEK"
+                    android:textSize="18sp"
                     android:id="@+id/rbutton2"
+                    android:layout_margin="5dp"
                     />
             </RadioGroup>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/siyah"
                 android:text="Kredi kartı başvuru sebeplerinizi işaretleyiniz."
-                android:textSize="17sp"
+                android:textSize="24sp"
+
+                android:layout_margin="5dp"
                 />
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:text="Alış-veriş "
+                android:layout_margin="5dp"
                 android:id="@+id/checkBox1"/>/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nakit Avans"
+                android:textSize="18sp"
+                android:layout_margin="5dp"
                 android:id="@+id/checkBox2"/>/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kredi çekmek"
+                android:layout_margin="5dp"
+                android:textSize="18sp"
                 android:id="@+id/checkBox3"/>/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Döviz Hesabı Satın Almak"
+                android:textSize="18sp"
+                android:layout_margin="5dp"
                 android:id="@+id/checkBox4"/>/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Diğer sebepler "
+                android:textSize="18sp"
+                android:layout_margin="5dp"
                 android:id="@+id/checkBox5"/>/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="25sp"
                 android:text="Sonucu Gönder"
-                android:textColor="@color/siyah"
+                android:layout_margin="5dp"
                 android:id="@+id/button1"/>/>
         </LinearLayout>
     </ScrollView>

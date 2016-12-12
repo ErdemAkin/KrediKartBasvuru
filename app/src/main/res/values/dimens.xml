@@ -2,4 +2,29 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--  Small ekran için boyut  -->
+    <dimen name ="smalltextsize">12sp</dimen>
+    <dimen name="smalltextsizesmall">10sp</dimen>
+
+
+    <!--  xlarge ekran için boyut  -->
+    <dimen name ="xlargetextsize">28sp</dimen>
+    <dimen name="xlargetextsizexlarge">30sp</dimen>
+    <dimen name ="xlargemargin">15dp</dimen>
+
+    <!--  7 inch tablet ekran için boyut  -->
+    <dimen name ="yedi_inch_textsize">32sp</dimen>
+    <dimen name="yedi_inch_textsizexlarge">23sp</dimen>
+    <dimen name ="yedi_inch_margin">18dp</dimen>
+
+
+    <!--  10 inch tablet ekran için boyut  -->
+    <dimen name ="on_inch_textsize">36sp</dimen>
+    <dimen name="on_inch_textsizexlarge">30sp</dimen>
+    <dimen name ="on_inch_margin">20dp</dimen>
+
+
+
+
 </resources>

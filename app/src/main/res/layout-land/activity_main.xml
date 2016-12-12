@@ -4,10 +4,6 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.deneme1.erel.kredikartbasvuru.MainActivity">
 
     <ScrollView
@@ -20,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="20dp">
+            android:layout_margin="10dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +29,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Adınız Soyadınız:"
-                android:textColor="@color/siyah"
 
 
                 />
@@ -45,7 +40,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/siyah"
                 android:text="T.C. KİMLİK NUMARASI:"
 
                 />
@@ -56,7 +50,6 @@
                 android:id="@+id/etTc" />
             <TextView
                 android:layout_width="match_parent"
-                android:textColor="@color/siyah"
                 android:layout_height="wrap_content"
                 android:text="Cinsiyet"
 
@@ -85,7 +78,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/siyah"
                 android:text="Kredi kartı başvuru sebeplerinizi işaretleyiniz."
                 android:textSize="17sp"
                 />
@@ -117,8 +109,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:text="Sonucu Gönder"
-                android:textColor="@color/siyah"
                 android:id="@+id/button1"/>/>
         </LinearLayout>
     </ScrollView>
