@@ -16,110 +16,144 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <LinearLayout
             android:orientation="vertical"
-            android:layout_margin="20dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="KREDİ KARTI BAŞVURU FORMU"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:textColor="#660066"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adınız Soyadınız:"
-                android:textColor="@color/siyah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
 
-
-                />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Buraya giriniz"
-                android:id="@+id/etAdi" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/siyah"
-                android:text="T.C. KİMLİK NUMARASI:"
+                android:inputType="textPersonName"
+                android:text="İsim"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="31dp" />
 
-                />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Buraya giriniz"
-                android:id="@+id/etTc" />
-            <TextView
-                android:layout_width="match_parent"
-                android:textColor="@color/siyah"
-                android:layout_height="wrap_content"
-                android:text="Cinsiyet"
+                android:inputType="textPersonName"
+                android:text="Soyisim"
+                android:ems="10"
+                android:id="@+id/editText2"
+                android:layout_below="@+id/editText"
+                android:layout_alignLeft="@+id/editText"
+                android:layout_alignStart="@+id/editText" />
 
-                />
-            <RadioGroup
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:id="@+id/rgroup"
-                >
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editText3"
+                android:layout_below="@+id/editText2"
+                android:layout_centerHorizontal="true"
+                android:text="Tel. No" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="KADIN"
-                    android:id="@+id/rbutton1"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ERKEK"
-                    android:id="@+id/rbutton2"
-                    />
-            </RadioGroup>
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/siyah"
-                android:text="Kredi kartı başvuru sebeplerinizi işaretleyiniz."
-                android:textSize="17sp"
-                />
-            <CheckBox
-                android:layout_width="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editText4"
+                android:layout_below="@+id/editText3"
+                android:layout_centerHorizontal="true"
+                android:text="2.Tel No" />
+
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alış-veriş "
-                android:id="@+id/checkBox1"/>/>
-            <CheckBox
-                android:layout_width="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/editText5"
+                android:layout_below="@+id/editText4"
+                android:layout_centerHorizontal="true"
+                android:text="Email" />
+
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nakit Avans"
-                android:id="@+id/checkBox2"/>/>
-            <CheckBox
-                android:layout_width="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/editText6"
+                android:layout_below="@+id/editText5"
+                android:layout_centerHorizontal="true"
+                android:text="Doğum Tarihi" />
+
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kredi çekmek"
-                android:id="@+id/checkBox3"/>/>
-            <CheckBox
-                android:layout_width="wrap_content"
+                android:id="@+id/editText7"
+                android:text="Adres"
+                android:layout_alignTop="@+id/scrollView"
+                android:layout_alignRight="@+id/editText6"
+                android:layout_alignEnd="@+id/editText6"
+                android:layout_alignLeft="@+id/editText6"
+                android:layout_alignStart="@+id/editText6"
+                android:layout_weight="3.16"
+                android:inputType="textMultiLine" />
+
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Döviz Hesabı Satın Almak"
-                android:id="@+id/checkBox4"/>/>
-            <CheckBox
-                android:layout_width="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/editText8"
+                android:layout_below="@+id/editText7"
+                android:layout_centerHorizontal="true"
+                android:text="İşe Başlama Tarihi" />
+
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Diğer sebepler "
-                android:id="@+id/checkBox5"/>/>
+                android:id="@+id/editText9"
+                android:layout_below="@+id/editText8"
+                android:text="Maaş"
+                android:layout_alignRight="@+id/editText8"
+                android:layout_alignEnd="@+id/editText8"
+                android:layout_alignLeft="@+id/editText8"
+                android:layout_alignStart="@+id/editText8" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/editText10"
+                android:layout_below="@+id/editText9"
+                android:text="Medeni Durumu"
+                android:layout_alignRight="@+id/editText12"
+                android:layout_alignEnd="@+id/editText12"
+                android:layout_alignLeft="@+id/editText12"
+                android:layout_alignStart="@+id/editText12" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText11"
+                android:layout_alignBottom="@+id/editText10"
+                android:layout_alignLeft="@+id/editText10"
+                android:layout_alignStart="@+id/editText10"
+                android:text="Eşin Maaşı" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText12"
+                android:layout_below="@+id/editText10"
+                android:layout_centerHorizontal="true"
+                android:text="Aile Fert Sayısı" />
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sonucu Gönder"
-                android:textColor="@color/siyah"
-                android:id="@+id/button1"/>/>
+                android:text="GÖNDER"
+                android:id="@+id/button"
+                android:layout_below="@+id/editText12"
+                android:layout_centerHorizontal="true" />
+
         </LinearLayout>
     </ScrollView>
 

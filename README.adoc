@@ -4,10 +4,10 @@
 == Proje Paydaşları
 * Ali Erdem Akın - 120202001
 * Melike 
-* Büşra Nur Altıntaş
-* Begüm Aydın
+* Büşra Nur Altıntaş - 130202027
+* Begüm Aydın 
 * Bengü Aydın
-* Münevver
+* Münevver Turan - 120202081
 
 == Proje Konusu
 Kredi kartı için başvurmak isteyen kullanıcıların mobil program üzerinden başvurabilmeleri için geliştirilen bu program, basit bir arayüze sahip olarak kullanıcıları rahat ve karmaşadan uzak tutarak başvuru yapmalarını hedefliyor.
