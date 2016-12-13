@@ -61,6 +61,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/yedi_inch_textsizexlarge"
                 android:layout_marginTop="@dimen/yedi_inch_margin"
+                android:maxLength="11"
+                android:inputType="number"
                 android:hint="Buraya giriniz"
                 android:id="@+id/etTc" />
             <TextView

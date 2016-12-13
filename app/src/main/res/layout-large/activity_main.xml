@@ -58,6 +58,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
+                android:maxLength="11"
+                android:inputType="number"
                 android:hint="Buraya giriniz"
                 android:layout_margin="5dp"
                 android:id="@+id/etTc" />

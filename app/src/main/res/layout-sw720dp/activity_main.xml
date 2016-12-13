@@ -51,6 +51,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:textSize="@dimen/on_inch_textsizexlarge"
                 android:layout_marginTop="@dimen/on_inch_margin"
                 android:text="T.C. KİMLİK NUMARASI:"
@@ -60,6 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/on_inch_textsizexlarge"
+                android:maxLength="11"
+                android:inputType="number"
                 android:layout_marginTop="@dimen/on_inch_margin"
                 android:hint="Buraya giriniz"
                 android:id="@+id/etTc" />
