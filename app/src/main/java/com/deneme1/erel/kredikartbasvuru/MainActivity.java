@@ -1,6 +1,7 @@
 package com.deneme1.erel.kredikartbasvuru;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,10 @@ import android.widget.Toast;
 //130202034 Melike YÜCEL
 
 //120202081 Münevver TURAN
-//deneme
+
+//130202065 Begüm AYDIN
+
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
         adSoyad = (EditText)findViewById(R.id.etAdi);
@@ -91,12 +96,14 @@ public class MainActivity extends AppCompatActivity {
                     text = text + " " + cb5.getText().toString() + "\n";
                 }
 
-                Toast.makeText(getApplicationContext(), "Yanıtlarınız gönderildi: \n" + text, 0).show();
+          //      Toast.makeText(getApplicationContext(), "Yanıtlarınız gönderildi: \n" + text, 0).show();
 
             }
         });
 
     }
+
+
 
 
     @Override
@@ -160,5 +167,7 @@ public class MainActivity extends AppCompatActivity {
         myEditor.clear();
         myEditor.commit();
     }
+
+
 
 }
