@@ -3,6 +3,7 @@ package com.deneme1.erel.kredikartbasvuru;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,11 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    ProgressDialog progressBar;
+    private int progressBarStatus = 0;
+    private Handler progressBarHandler = new Handler();
+    private long dosyaBoyutu = 0;
 
     public static final String myid = "myid001";
     public static final int actMode = Activity.MODE_PRIVATE;
@@ -96,14 +102,78 @@ public class MainActivity extends AppCompatActivity {
                     text = text + " " + cb5.getText().toString() + "\n";
                 }
 
-          //      Toast.makeText(getApplicationContext(), "Yanıtlarınız gönderildi: \n" + text, 0).show();
+
+
+
+                progressBar = new ProgressDialog(v.getContext());
+                progressBar.setCancelable(true);
+                progressBar.setMessage("İşlem Tamamlanıyor ...");
+                progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                progressBar.setProgress(0);
+                progressBar.setMax(100);
+                progressBar.show();
+
+
+                progressBarStatus = 0;
+
+                dosyaBoyutu = 0;
+
+                new Thread(new Runnable() {
+                    public void run() {
+                        while (progressBarStatus < 100) {
+                            progressBarStatus = indirmeSimulasyon();
+
+                            try {
+
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+
+
+                            progressBarHandler.post(new Runnable() {
+                                public void run() {
+                                    progressBar.setProgress(progressBarStatus);
+                                }
+                            });
+                        }
+
+
+                        if (progressBarStatus >= 100) {
+
+
+                            try {
+
+                                Thread.sleep(100);
+
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+
+
+                            progressBar.dismiss();
+
+                        }
+                    }
+                }).start();
 
             }
         });
 
     }
 
+    public int indirmeSimulasyon() {
 
+        while (dosyaBoyutu <= 100) {
+            //Sürekli dosyaBoyutu değişkeni 1 artırılarak sanki bir dosya indirmesi yapılıyormuş gibi simulasyon yapılacak.
+            dosyaBoyutu++;
+            return (int) dosyaBoyutu;
+
+        }
+        return 100;
+
+
+    }
 
 
     @Override

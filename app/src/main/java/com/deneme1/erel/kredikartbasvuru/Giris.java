@@ -21,7 +21,7 @@ public class Giris extends Activity {
             public void run() {
 
                 try {
-                    this.sleep(3000);
+                    this.sleep(2000);
                 } catch (InterruptedException e) {
 
                 } finally {
