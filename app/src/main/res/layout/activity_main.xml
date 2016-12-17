@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.deneme1.erel.kredikartbasvuru.MainActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                tools:context="com.deneme1.erel.kredikartbasvuru.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="20dp">
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_margin="20dp"
+                      android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="KREDİ KARTI BAŞVURU FORMU"
-                android:textSize="18sp"
                 android:gravity="center"
+                android:text="KREDİ KARTI BAŞVURU FORMU"
                 android:textColor="#660066"
+                android:textSize="18sp"
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,90 +39,103 @@
 
 
                 />
+
             <EditText
+                android:id="@+id/etAdi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Buraya giriniz"
-                android:id="@+id/etAdi" />
+                android:hint="Buraya giriniz"/>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/siyah"
                 android:text="T.C. KİMLİK NUMARASI:"
+                android:textColor="@color/siyah"
 
                 />
+
             <EditText
+                android:id="@+id/etTc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Buraya giriniz"
-                android:id="@+id/etTc" />
+                android:hint="Buraya giriniz"/>
+
             <TextView
                 android:layout_width="match_parent"
-                android:textColor="@color/siyah"
                 android:layout_height="wrap_content"
                 android:text="Cinsiyet"
+                android:textColor="@color/siyah"
 
                 />
+
             <RadioGroup
+                android:id="@+id/rgroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:id="@+id/rgroup"
+                android:orientation="horizontal"
                 >
 
                 <RadioButton
+                    android:id="@+id/rbutton1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KADIN"
-                    android:id="@+id/rbutton1"
                     />
+
                 <RadioButton
+                    android:id="@+id/rbutton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ERKEK"
-                    android:id="@+id/rbutton2"
                     />
             </RadioGroup>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/siyah"
                 android:text="Kredi kartı başvuru sebeplerinizi işaretleyiniz."
+                android:textColor="@color/siyah"
                 android:textSize="17sp"
                 />
+
             <CheckBox
+                android:id="@+id/checkBox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alış-veriş "
-                android:id="@+id/checkBox1"/>/>
+                android:text="Alış-veriş "/>
+
             <CheckBox
+                android:id="@+id/checkBox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nakit Avans"
-                android:id="@+id/checkBox2"/>/>
+                android:text="Nakit Avans"/>
+
             <CheckBox
+                android:id="@+id/checkBox3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kredi çekmek"
-                android:id="@+id/checkBox3"/>/>
+                android:text="Kredi çekmek"/>
+
             <CheckBox
+                android:id="@+id/checkBox4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Döviz Hesabı Satın Almak"
-                android:id="@+id/checkBox4"/>/>
+                android:text="Döviz Hesabı Satın Almak"/>
+
             <CheckBox
+                android:id="@+id/checkBox5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diğer sebepler "
-                android:id="@+id/checkBox5"/>/>
+                android:text="Diğer sebepler "/>
+
             <Button
+                android:id="@+id/button1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sonucu Gönder"
                 android:onClick="sonuc"
-                android:textColor="@color/siyah"
-                android:id="@+id/button1"/>/>
+                android:text="Sonucu Gönder"
+                android:textColor="@color/siyah"/>
         </LinearLayout>
     </ScrollView>
 

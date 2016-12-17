@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.deneme1.erel.kredikartbasvuru">
+          package="com.deneme1.erel.kredikartbasvuru">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:smallScreens="true"
-        android:xlargeScreens="true"
-        ></supports-screens>
+        android:xlargeScreens="true"/>
 
 
     <application
@@ -18,12 +19,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Giris">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"> </activity>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>
