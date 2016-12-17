@@ -12,12 +12,9 @@ import retrofit2.http.POST;
  * Created by melike on 17/12/2016.
  */
 public class ServiceManager {
-
     private static Retrofit retrofit = null;
-
     public static Retrofit getClient() {
         if (retrofit == null) {
-
             retrofit = new Retrofit.Builder()
                     .baseUrl("http://www.melikeyucel.com.tr")
                     .addConverterFactory(GsonConverterFactory.create())
@@ -26,9 +23,7 @@ public class ServiceManager {
         return retrofit;
     }
 
-
     public interface ServiceRequest {
-
         @POST("/services/register.php")
         Call<Boolean> addForm(@Body Register register);
     }

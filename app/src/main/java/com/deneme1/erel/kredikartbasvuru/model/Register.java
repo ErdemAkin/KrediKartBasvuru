@@ -18,35 +18,27 @@ public class Register {
         this.TCKN = TCKN;
         this.tercih = tercih;
     }
-
     public String getAdSoyad() {
         return adSoyad;
     }
-
     public void setAdSoyad(String adSoyad) {
         this.adSoyad = adSoyad;
     }
-
     public boolean isCinsiyet() {
         return cinsiyet;
     }
-
     public void setCinsiyet(boolean cinsiyet) {
         this.cinsiyet = cinsiyet;
     }
-
     public String getTCKN() {
         return TCKN;
     }
-
     public void setTCKN(String TCKN) {
         this.TCKN = TCKN;
     }
-
     public ArrayList<String> getTercih() {
         return tercih;
     }
-
     public void setTercih(ArrayList<String> tercih) {
         this.tercih = tercih;
     }

@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:layout_margin="20dp"
@@ -28,17 +28,13 @@
                 android:gravity="center"
                 android:text="KREDİ KARTI BAŞVURU FORMU"
                 android:textColor="#660066"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Adınız Soyadınız:"
-                android:textColor="@color/siyah"
-
-
-                />
+                android:textColor="@color/siyah" />
 
             <EditText
                 android:id="@+id/etAdi"
@@ -50,9 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="T.C. KİMLİK NUMARASI:"
-                android:textColor="@color/siyah"
-
-                />
+                android:textColor="@color/siyah" />
 
             <EditText
                 android:id="@+id/etTc"
@@ -64,31 +58,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cinsiyet"
-                android:textColor="@color/siyah"
-
-                />
+                android:textColor="@color/siyah" />
 
             <RadioGroup
                 android:id="@+id/rgroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbutton1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="KADIN"
-                    />
+                    android:text="KADIN" />
 
                 <RadioButton
                     android:id="@+id/rbutton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ERKEK"
-                    />
+                    android:text="ERKEK" />
             </RadioGroup>
 
             <TextView
@@ -96,8 +85,7 @@
                 android:layout_height="wrap_content"
                 android:text="Kredi kartı başvuru sebeplerinizi işaretleyiniz."
                 android:textColor="@color/siyah"
-                android:textSize="17sp"
-                />
+                android:textSize="17sp" />
 
             <CheckBox
                 android:id="@+id/checkBox1"

@@ -46,11 +46,9 @@ public class MainActivity extends AppCompatActivity {
     public static final String myid = "myid001";
     public static final int actMode = Activity.MODE_PRIVATE;
 
-
     private EditText adSoyad, tc;
     private boolean cinsiyet;
     private ArrayList<String> tercih = new ArrayList<>();
-
 
     RadioGroup rg;
     RadioButton rb1, rb2;
@@ -64,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
         adSoyad = (EditText) findViewById(R.id.etAdi);
         tc = (EditText) findViewById(R.id.etTc);
-
 
         rg = (RadioGroup) findViewById(R.id.rgroup);
         rb1 = (RadioButton) findViewById(R.id.rbutton1);
