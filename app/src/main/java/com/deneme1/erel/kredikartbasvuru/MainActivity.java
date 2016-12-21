@@ -23,6 +23,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+
+
 //120202001 - Ali Erdem Akın
 
 //130202027 -Büşra Nur ALTINTAŞ
@@ -73,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
         cb4 = (CheckBox) findViewById(R.id.checkBox4);
         cb5 = (CheckBox) findViewById(R.id.checkBox5);
         b1 = (Button) findViewById(R.id.button1);
+
+        AutoCompleteTextView iller=(AutoCompleteTextView)findViewById(R.id.auto);
+        String[] Cihaz= getResources().getStringArray(R.array.cihaz);
+
+        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,Cihaz);
+        iller.setAdapter(adapter);
 
         b1.setOnClickListener(new View.OnClickListener() {
 

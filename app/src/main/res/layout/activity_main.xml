@@ -8,7 +8,8 @@
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
-                tools:context="com.deneme1.erel.kredikartbasvuru.MainActivity">
+                tools:context="com.deneme1.erel.kredikartbasvuru.MainActivity"
+               >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -45,13 +46,62 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="T.C. KİMLİK NUMARASI:"
+                android:text="T.C. Kimlik No:"
                 android:textColor="@color/siyah" />
 
             <EditText
                 android:id="@+id/etTc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="11"
+                android:hint="Buraya giriniz"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Doğum Tarihiniz:"
+                android:textColor="@color/siyah" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:maxLength="10"
+                android:id="@+id/date"
+                android:hint="Buraya giriniz"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nüfusa Kayıtlı Olduğunuz İl:"
+                android:textColor="@color/siyah" />
+
+            <AutoCompleteTextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="1"
+                android:id="@+id/auto"
+                android:layout_below="@+id/textView"
+                android:hint="Buraya giriniz"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maaş Miktarı:"
+                android:textColor="@color/siyah" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/editText2"
                 android:hint="Buraya giriniz"/>
 
             <TextView

@@ -30,8 +30,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/smalltextsizesmall"
                 android:text="Adınız Soyadınız:"
-
-
+                android:textColor="@color/siyah"
                 />
             <EditText
                 android:layout_width="match_parent"
@@ -44,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/smalltextsizesmall"
                 android:text="T.C. KİMLİK NUMARASI:"
-
+                android:textColor="@color/siyah"
                 />
             <EditText
                 android:layout_width="match_parent"
@@ -54,12 +53,66 @@
                 android:inputType="number"
                 android:hint="Buraya giriniz"
                 android:id="@+id/etTc" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Doğum Tarihiniz:"
+                android:textColor="@color/siyah"
+                android:textSize="@dimen/smalltextsizesmall"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:maxLength="10"
+                android:id="@+id/date"
+                android:hint="Buraya giriniz"
+                android:textSize="@dimen/smalltextsizesmall"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nüfusa Kayıtlı Olduğunuz İl:"
+                android:textColor="@color/siyah"
+                android:textSize="@dimen/smalltextsizesmall"/>
+
+            <AutoCompleteTextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="1"
+                android:id="@+id/auto"
+                android:layout_below="@+id/textView"
+                android:hint="Buraya giriniz"
+                android:textSize="@dimen/smalltextsizesmall"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maaş Miktarı:"
+                android:textColor="@color/siyah"
+                android:textSize="@dimen/smalltextsizesmall"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/editText2"
+                android:hint="Buraya giriniz"
+                android:textSize="@dimen/smalltextsizesmall"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/smalltextsizesmall"
                 android:text="Cinsiyet"
-
+                android:textColor="@color/siyah"
                 />
             <RadioGroup
                 android:layout_width="match_parent"
@@ -90,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/smalltextsizesmall"
                 android:text="Kredi kartı başvuru sebeplerinizi işaretleyiniz."
-
+                android:textColor="@color/siyah"
                 />
             <CheckBox
                 android:layout_width="wrap_content"
