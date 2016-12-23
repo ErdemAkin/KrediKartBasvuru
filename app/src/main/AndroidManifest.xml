@@ -25,6 +25,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
+        <activity
+            android:name=".other"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.deneme1.erel.kredikartbasvuru.OTHER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

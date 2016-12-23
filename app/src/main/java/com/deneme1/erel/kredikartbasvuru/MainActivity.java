@@ -27,6 +27,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
+import android.os.CountDownTimer;
+import android.content.Intent;
+
+import static com.deneme1.erel.kredikartbasvuru.R.id.etAdi;
+
 
 //120202001 - Ali Erdem Akın
 
@@ -60,12 +65,16 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox cb1, cb2, cb3, cb4, cb5;
     private Button b1;
 
+    private Intent intent;
+    private Bundle bundle;
+    private CountDownTimer countDownTimer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        adSoyad = (EditText) findViewById(R.id.etAdi);
+        adSoyad = (EditText) findViewById(etAdi);
         tc = (EditText) findViewById(R.id.etTc);
 
         rg = (RadioGroup) findViewById(R.id.rgroup);
@@ -180,6 +189,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).start();
 
+                new CountDownTimer(10000, 10000) {
+
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    public void onFinish() {
+                        intent = new Intent("com.deneme1.erel.kredikartbasvuru.OTHER");
+                        bundle = new Bundle();
+                        bundle.putString("isim", adSoyad.getText().toString());
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
+                }.start();
 
 
             }
