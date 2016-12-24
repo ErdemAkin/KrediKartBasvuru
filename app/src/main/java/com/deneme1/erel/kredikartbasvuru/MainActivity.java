@@ -18,12 +18,12 @@ import com.deneme1.erel.kredikartbasvuru.model.Register;
 import com.deneme1.erel.kredikartbasvuru.service.ServiceManager;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String myid = "myid001";
     public static final int actMode = Activity.MODE_PRIVATE;
 
-    private EditText adSoyad, tc;
+    private EditText adSoyad, tc , maas , dogum;
     private boolean cinsiyet;
     private ArrayList<String> tercih = new ArrayList<>();
 
@@ -76,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
         adSoyad = (EditText) findViewById(etAdi);
         tc = (EditText) findViewById(R.id.etTc);
+        maas = (EditText) findViewById(R.id.editText2);
+        dogum = (EditText) findViewById(R.id.date) ;
+
 
         rg = (RadioGroup) findViewById(R.id.rgroup);
         rb1 = (RadioButton) findViewById(R.id.rbutton1);
@@ -91,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         AutoCompleteTextView iller=(AutoCompleteTextView)findViewById(R.id.auto);
         String[] Cihaz= getResources().getStringArray(R.array.cihaz);
 
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,Cihaz);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,Cihaz);
         iller.setAdapter(adapter);
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -196,9 +199,14 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     public void onFinish() {
-                        intent = new Intent("com.deneme1.erel.kredikartbasvuru.OTHER");
-                        bundle = new Bundle();
+
+                        String[] value = dogum.getText().toString().split("\\.");
+                        String yas = value[2];
+                        Intent intent = new Intent("com.deneme1.erel.kredikartbasvuru.OTHER");
+                        Bundle bundle = new Bundle();
                         bundle.putString("isim", adSoyad.getText().toString());
+                        bundle.putString("maas",maas.getText().toString());
+                        bundle.putString("yas",yas);
                         intent.putExtras(bundle);
                         startActivity(intent);
                     }
@@ -303,4 +311,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 }

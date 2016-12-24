@@ -4,23 +4,17 @@
     android:layout_height="match_parent"
     android:background="#e0ffff">
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
+
+    <Button
+        android:text="Sonuçları Göster"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="170dp"
-        android:text="Sayın"
-        />
+        android:id="@+id/button" />
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
         android:layout_alignParentTop="true"
@@ -29,30 +23,5 @@
         android:layout_marginTop="15dp"
         />
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:text="İşleminiz Başarıyla"
-        />
-
-    <TextView
-        android:id="@+id/text3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:text="Gerçekleştirilmiştir."
-        />
 
 </LinearLayout>
