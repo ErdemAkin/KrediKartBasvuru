@@ -1,5 +1,395 @@
-= 120202001 - Ali Erdem Akın
 
-* Proje dosyalarını oluşturdum. Arkadaşlarımı projeye dahil ettim.
+= Ali Erdem Akın
 
-* Projeye Arayüz ekledim.
+== Yaptığı İşler Ve Geliştirmeler
+
+
+. Proje YÖnetimi
+. İlk Arayüzün Yapılması
+. Web Servis
+.. C# Web Servisin Yazılması
+.. Web Servisin Sunucuya Yüklenmesi
+.. Web Servisin Projeye Eklenmesi
+
+== 1)Proje Yönetimi
+1. Projemizin başlaması için bir Android projesi açıp onu githuba yükledim. Daha sonra ekibimi projeye dahil ettim.
+
+== 2)İlk Arayüzün Yapılması
+Daha çok elle tutulur birşeyler olması ve ekip arkadaşlarıma kullanıcıdan hangi `değişkenleri` alabiliriz
+göstermek amacı ile oluşturulmuş basit bir arayüzdü. İçerisinde sadece `EditText` ler vardı.
+
+[[source,xml]]
+----
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="İsim"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="31dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Soyisim"
+                android:ems="10"
+                android:id="@+id/editText2"
+                android:layout_below="@+id/editText"
+                android:layout_alignLeft="@+id/editText"
+                android:layout_alignStart="@+id/editText" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editText3"
+                android:layout_below="@+id/editText2"
+                android:layout_centerHorizontal="true"
+                android:text="Tel. No" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editText4"
+                android:layout_below="@+id/editText3"
+                android:layout_centerHorizontal="true"
+                android:text="2.Tel No" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/editText5"
+                android:layout_below="@+id/editText4"
+                android:layout_centerHorizontal="true"
+                android:text="Email" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/editText6"
+                android:layout_below="@+id/editText5"
+                android:layout_centerHorizontal="true"
+                android:text="Doğum Tarihi" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText7"
+                android:text="Adres"
+                android:layout_alignTop="@+id/scrollView"
+                android:layout_alignRight="@+id/editText6"
+                android:layout_alignEnd="@+id/editText6"
+                android:layout_alignLeft="@+id/editText6"
+                android:layout_alignStart="@+id/editText6"
+                android:layout_weight="3.16"
+                android:inputType="textMultiLine" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/editText8"
+                android:layout_below="@+id/editText7"
+                android:layout_centerHorizontal="true"
+                android:text="İşe Başlama Tarihi" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText9"
+                android:layout_below="@+id/editText8"
+                android:text="Maaş"
+                android:layout_alignRight="@+id/editText8"
+                android:layout_alignEnd="@+id/editText8"
+                android:layout_alignLeft="@+id/editText8"
+                android:layout_alignStart="@+id/editText8" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/editText10"
+                android:layout_below="@+id/editText9"
+                android:text="Medeni Durumu"
+                android:layout_alignRight="@+id/editText12"
+                android:layout_alignEnd="@+id/editText12"
+                android:layout_alignLeft="@+id/editText12"
+                android:layout_alignStart="@+id/editText12" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText11"
+                android:layout_alignBottom="@+id/editText10"
+                android:layout_alignLeft="@+id/editText10"
+                android:layout_alignStart="@+id/editText10"
+                android:text="Eşin Maaşı" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText12"
+                android:layout_below="@+id/editText10"
+                android:layout_centerHorizontal="true"
+                android:text="Aile Fert Sayısı" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GÖNDER"
+                android:id="@+id/button"
+                android:layout_below="@+id/editText12"
+                android:layout_centerHorizontal="true" />
+
+        </LinearLayout>
+    </ScrollView>
+----
+
+
+Bu xml yapısında sadece `EditText` ler kullanılmadı. `LinearLayout` ve `ScrollView` yapısıda kullanıldı.
+
+== 3) Web Service
+=== 3.1) C# Web Servisin Yazılması
+Web service olarak soap api tercih edildi. Yazılım geliştirme dili olarakta c# tercih dildi. Web
+service'miz iki adet değişken alıyor. Değişkenlerden ilki `maas` değişkenidir. İkincisi ise
+`yas` değişkenidir. Bu iki değişkeni kontrol ettikten sonra eğer koşullara uyuyorsa koşula bağlı olarak toplamda 4 adet string değeri geri dönderebiliyor.
+
+.Eğer Maaş 2500 Tl'den Fazla ve Yaşı 18'ten Büyük İse
+====
+Başvurunuz Başarıyla Tamamlanmıştır.
+====
+.Eğer Maaş 2500 Tl'den Az ve Yaşı 18'ten Büyük İse
+====
+Maaşınız 2500 Tl'nin Altında Olduğu İçin Kaydınız tamamlanmamıştır.
+====
+.Eğer Maaş 2500 Tl'den Fazla ve Yaşı 18'ten Küçük İse
+====
+Yaşınız 18'den Küçük olduğu için Kaydınız Tamamlanmamıştır.
+====
+.Eğer Maaş 2500 Tl'den Az ve Yaşı 18'ten Küçük İse
+====
+Kredi Kartı Başvurusu yapabilmeniz için Yaşınız 18'den büyük, Maaşınızın ise 2500 Tl'den fazla olması gereklidir.
+====
+
+[[Source,c#]]
+----
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+
+namespace kontrol
+{
+    /// <summary>
+    /// Summary description for WebService1
+    /// </summary>
+    [WebService(Namespace = "http://tempuri.org/")] <1>
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line.
+    // [System.Web.Script.Services.ScriptService]
+    public class WebService1 : System.Web.Services.WebService
+    {
+
+        [WebMethod]
+        public string kontrol(int maas, int yas)
+        {
+            string value;
+            if (maas >= 2500 && yas >= 18)
+            {
+                value = "Başvurunuz Başarıyla Tamamlanmıştır.";
+                return value;
+            }
+            else if (maas < 2500 && yas >= 18)
+            {
+                value = "Maaşınız 2500 Tl'nin Altında Olduğu İçin Kaydınız tamamlanmamıştır.";
+                return value;
+            }
+            else if (maas >= 2500 && yas < 18)
+            {
+                value = "Yaşınız 18'den Küçük olduğu için Kaydınız Tamamlanmamıştır.";
+                return value;
+            }
+            else
+            {
+                value = "Kredi Kartı Başvurusu yapabilmeniz için Yaşınız 18'den büyük, Maaşınızın ise 2500 Tl'den fazla olması gereklidir.";
+                return value;
+            }
+        }
+    }
+}
+<1> Burası web service yükleyeceğimiz sunucunun adresi olmalıdır. Sunucuya yükleneceği zaman sunucu adresine göre değiştirilmelidir.
+----
+
+=== 3.2) Web Servisin Sunucuya Yüklenmesi
+Web service oluşturulduktan sonra sunucuya yüklenmesi gerekiyordu. Bunun için arkadaşımızın şirketlerinde kullandığı sunucuya izin alarak yüklendi.
+Sunucunun adresi *http://212.58.23.165/* dir. Bu adrese yüklendikten sonra web service çalışır hale gelmiştir.
+
+=== 3.3) Web Servisin Projeye Eklenmesi
+
+1) İlk olarak web service'den bize dönecek değişken için bir tanımlama yaptık. Bunun için *MessageResult.java* sınıfı tanımlandı.
+[[Source,java]]
+----
+public class MessageResult {
+    public String message;
+}
+----
+
+2) Web service'mize iki adet değişken gönderilecekti. Bu iki değişkeni MainActivity.java sınıfından alacağız.
+Kullanacı arayüzden gireceği bu değerleri tanımladığımız sınıftaki objeye atıp web servici öyle çağıracağız. Bunun içinde
+*ControlInput.java* adlı sınıfı oluşturduk.
+[[Source,java]]
+----
+public class ControlInput {
+    private int maas;
+    private int yas;
+
+    public int getMaas(){
+
+        return maas;
+    }
+    public void setMaas(int maas){
+
+        this.maas = maas;
+    }
+    public int getYas(){
+
+        return yas;
+    }
+    public void setYas(int yas){
+
+        this.yas = yas;
+    }
+}
+----
+
+3) Web service'mizde hangi metodların bulunduğunu ifade etmek için bir adet *interface* oluşturduk. . *Interface*
+yapısını açıklamak gerekirse içerisinde, sadece kendisinden türeyen sınıfların içini doldurmak zorunda olduğu içi boş metod tanımlarının yapıldığı bir yapıdır. Kısacası kendisini kullanacak sınıflar için bir yerine getirmeleri gereken metodları belirten bir sözleşme, prosedür gibi görülebilir.
+
+[[Source,java]]
+----
+public interface WebServiceCaller{
+    public String getMessage(ControlInput input);
+}
+----
+
+4) Bu interface'den bir adet sınıf implamente edicez.
+[[Source,java]]
+----
+public class WebServiceCallerImpl implements WebServiceCaller
+----
+
+5) Service'mize ilişkin static verileri tanımlıyoruz. Burası server bilgilerinin ve web service'in isminin belirlendiği kısımdır.
+Uygulamamız istediği web servise burada ki bilgiler sayesinde erişebilmektedir.
+
+[[Source,java]]
+----
+    private static final String METHOD_NAME = "kontrol";
+    private static final String NAMESPACE = "http://212.58.23.165/";
+    private static final String SOAP_ACTION = "http://212.58.23.165/kontrol";
+    private static final String URL = "http://212.58.23.165/kontrol/Service1.asmx";
+----
+
+6) Artık Web servisimizi çağırabiliriz.
+[[Source,java]]
+----
+public String getMessage(ControlInput input){
+
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME); <1>
+
+        request.addProperty("maas",input.getMaas()); <1>
+        request.addProperty("yas",input.getYas()); <1>
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11); <2>
+        envelope.dotNet = true; <2>
+        envelope.encodingStyle = SoapEnvelope.ENC; <2>
+        envelope.setAddAdornments(false); <2>
+        envelope.implicitTypes = false; <2>
+
+        envelope.setOutputSoapObject(request); <2>
+
+        HttpTransportSE androidHttpTransport = new HttpTransportSE(URL); <3>
+        try {
+            androidHttpTransport.call(SOAP_ACTION,envelope); <3>
+            if(envelope.bodyIn instanceof SoapObject){ <4>
+                SoapPrimitive response = (SoapPrimitive) envelope.getResponse(); <5>
+                MessageResult messageresult = new MessageResult(); <5>
+                messageresult.message = response.toString(); <5>
+                return messageresult.message; <5>
+            }
+            else if(envelope.bodyIn instanceof SoapFault){
+                SoapFault soapfault = (SoapFault) envelope.bodyIn; <6>
+                throw new Exception(soapfault.getMessage()); <6>
+            }
+            else
+                return "Hata!"; <7>
+        }catch (Exception e){
+            return e.getMessage(); <8>
+        }
+    }
+    <1> Bu kısımlarda inputlarımızı hazırladık.
+    <2> Bu kodlarda ise inputlarımızı haberleşmesi için ayarladık ve özellikleri set ettik.
+    <3> Web serrvis adresimiz için HTTPTransport katmanınını oluşturduk. Bu sayede inputlarımızı
+    ilgili aksiyona gönderebiliriz.
+    <4> Dönen sonuçun Xml formatında mı olduğu kontrol edilir.
+    <5> Bu kısımda sonuç gerekli yerlere atanır.
+    <6> ksoap2'nin hata yakalama mekanizmasıdır.
+    <7> Eğer bunlardan farklı bir durum varsa "Hata" stringini döndürür.
+    <8> Kod'un çalışması sırasında bir hata varsa bunu yakalayıp mesajını döndürür.
+----
+
+7) Main Thread'te yani activity içerisinde doğrudan web servis çağıramadığımız için bir AsyncTask oluşturuyoruz.
+
+[[Source,javaj]]
+----
+private class controlAsync extends AsyncTask<String,Void,String>{
+        public ControlInput input;
+        public String sonuc = "";
+
+        protected String doInBackground(String... urls){
+            WebServiceCaller i = new WebServiceCallerImpl();
+            sonuc = i.getMessage(input);
+            return "";
+        }
+        protected void onPostExecute(String result){
+
+            tv.setText("Sayın "+isim+":\n\n"+sonuc); <1>
+        }
+    }
+    <1> Burada daha önce oluşturduğumuz *textView* 'imizin Text'ini değiştiriyoruz.
+----
+
+8) En son Main Thread içerisinde son kodlarımızı yazıyoruz ve web servisimiz kullanıma hazır.
+
+[[Source,java]]
+----
+ControlInput cntinput= new ControlInput();
+                cntinput.setMaas(maas);
+                cntinput.setYas(yas);
+                controlAsync lt = new controlAsync();
+                lt.input = cntinput;
+                lt.execute();
+----
