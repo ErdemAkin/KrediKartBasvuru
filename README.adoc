@@ -1,14 +1,59 @@
+:imagesdir: resimler
 
 = Mobil Programlama Dersi Dönem Projesi
+
+# Kredi Kartı Başvuru Uygulaması
+
 
 == Proje Paydaşları
 * Ali Erdem Akın - 120202001
 * Melike Yücel - 130202034
 * Büşra Nur Altıntaş - 130202027
-* Begüm Aydın 
-* Bengü Aydın
+* Begüm Aydın - 130202065
+* Bengü Aydın - 130202066
 * Münevver Turan - 120202081
 
-== Proje Konusu
-Kredi kartı için başvurmak isteyen kullanıcıların mobil program üzerinden başvurabilmeleri için geliştirilen bu program, basit bir arayüze sahip olarak kullanıcıları rahat ve karmaşadan uzak tutarak başvuru yapmalarını hedefliyor.
-İlk sayfada başvuru yapacak kişiden gereken bilgiler alındıktan sonra butona tıkladıktan sonra arka planda bilgilerin kontrolü yapılacak ve kontrol sonucunda ekrana kabul edildi yada kabul edilmedi yazılacaktır.
+== Uygulamanın Özeti
+Kredi kartı başvurusu yapmak isteyen bir kullanıcı kişisel bilgilerini girerek
+işlemi onaylar. Daha sonra web servisle kişinin maaş ve yaş kontrolü yapılır ve
+başvurusunun kabul sonucu kullanıcıya gösterilir. Böyle bir senaryoya sahip projemizde
+kullanılan companent ve özellikler aşağıdaki gibidir.
+
+* Tablet ve telefonlarda hem yatay hem de dikey olarak çalışacak şekilde LAYOUT tasarımlarının yapıldı.
+* Layoutlar ve ScroolView kullanıldı.
+* Scroll View, Progressbar, CheckBox, List View, Radio Button, AuotoComplete TextView componentleri kullanıldı.
+* Activity Yasam Döngüsü kullanıldı.
+* Intent kullanıldı.
+* Bundle kullanıldı.
+* Shared Preferences kullanıldı.
+* Thread kullanıldı.
+* AsyncTask kullanıldı.
+* Soap Web Servis kullanıldı.
+* Firebase Notification kullanıldı.
+
+=== 1) Splash Screen
+
+image::1.png[splash,360,640,align="center"]
+
+=== 2) AuotoComplete TextView
+
+image::2.png[AutoComplate,360,640,align="center"]
+
+=== 3) Radio Button ve CheckBox
+
+image::3.png[RadioAndCheck,360,640,align="center"]
+
+=== 4) Ana Ekran
+
+image::4.png[main,360,640,align="center"]
+
+=== 5) ProgressBar
+
+image::5.png[ProgressBar,360,640,align="center"]
+
+=== 6) Web Service Sonucu
+Burada butona tıklandığı zaman soap web servise bir önceki aktivity ekranında aldığımız
+maaş ve doğum günü değişkenleri kullanılarak web servise maaş ve yaş değişkenleri gönderiliyor.
+Gönderilen bu değişkenlerden dönen sonuç bir önceki ekranda alınan isim değişkeni ile birlikte ekrana yazılıyor.
+
+image::6.png[WebService,360,640,align="center"]
