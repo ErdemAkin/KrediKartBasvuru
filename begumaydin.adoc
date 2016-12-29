@@ -1,6 +1,103 @@
-**130202065 Begüm Aydın ** +
+= 130202065 Begüm Aydın 
  
-.Yapılanlar
-* Export edildi.
-* İsim soyisim numaralar girilip. Push edildi.
+== Yapılanlar
 
+* Thread kullanılarak Splash Screen oluşturuldu.
+* "İşlem tamamlanıyor..." açıklamalı Proggresbar oluşturuldu.
+
+== 1) Thread & Splash Screen
+**Giris.java**
+
+[source,java]
+----
+
+ Thread gec = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    this.sleep(2000);
+                } catch (InterruptedException e) {
+
+                } finally {
+                    startActivity(new Intent(Giris.this, MainActivity.class));
+                }
+            }
+        };
+        gec.start();
+
+----
+
+**AndroidManifest.xml**
+
+[source,java]
+----
+<activity android:name=".Giris">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity"/>
+        <activity
+----
+
+**Splash Screen oluşturmak için Thread kullanıldı. Giris.java oluşturuldu, ilk ekran olması için AndroidManifest.xml de değişiklik yapıldı. Yukarıda verilen Thread kodu ile Giriş.java da 2 saniye giriş ekranını gösterip MainActivity.java ya geçiş yapıldı. **
+
+== 2)ProgressBar
+
+[source,java]
+----
+progressBar = new ProgressDialog(v.getContext());
+                progressBar.setCancelable(true);
+                progressBar.setMessage("İşlem Tamamlanıyor ...");
+                progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                progressBar.setProgress(0);
+                progressBar.setMax(100);
+                progressBar.show();
+                progressBarStatus = 0;
+                dosyaBoyutu = 0;
+
+                new Thread(new Runnable() {
+                    public void run() {
+                        while (progressBarStatus < 100) {
+                            progressBarStatus = indirmeSimulasyon();
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            progressBarHandler.post(new Runnable() {
+                                public void run() {
+                                    progressBar.setProgress(progressBarStatus);
+                                }
+                            });
+                        }
+
+                        if (progressBarStatus >= 100) {
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            progressBar.dismiss();
+                            String TCKN = tc.getText().toString();
+                            String ad_Soyad = adSoyad.getText().toString();
+                            Register register = new Register(TCKN, ad_Soyad, cinsiyet, tercih);
+                            sendForm(register);
+                        }
+                    }
+                }).start();
+                
+                public int indirmeSimulasyon() {
+
+        while (dosyaBoyutu <= 100) {
+            dosyaBoyutu++;
+            return (int) dosyaBoyutu;
+
+        }
+        return 100;
+    }
+----
+
+**Butona tıklandığında "İşlem Tamamlanıyor..." açıklamalı Progressbar oluşturuldu. indirmeSimulasyon fonksiyonu ile sürekli dosyaBoyutu değişkeni 1 artırılarak sanki bir dosya indirmesi yapılıyormuş gibi simulasyon yapılması sağlandı. Splash ekranınında kullanıldığı gibi Progressbarda da Thread kullanıldı.**
