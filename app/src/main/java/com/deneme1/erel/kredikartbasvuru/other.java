@@ -61,6 +61,7 @@ public class other  extends Activity {
             return "";
         }
         protected void onPostExecute(String result){
+
             tv.setText("Sayın "+isim+":\n\n"+sonuc);
         }
     }

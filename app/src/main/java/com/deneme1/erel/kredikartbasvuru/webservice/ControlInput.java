@@ -9,6 +9,7 @@ public class ControlInput {
     private int yas;
 
     public int getMaas(){
+
         return maas;
     }
     public void setMaas(int maas){
@@ -16,9 +17,11 @@ public class ControlInput {
         this.maas = maas;
     }
     public int getYas(){
+
         return yas;
     }
     public void setYas(int yas){
+
         this.yas = yas;
     }
 }
