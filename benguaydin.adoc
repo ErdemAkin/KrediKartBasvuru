@@ -1,6 +1,225 @@
-**130202066 Bengü Aydın ** +
+= 130202066 Bengü Aydın 
  
-.Yapılanlar
-* Dosya export edildi.
-* İsim soyisim numaralar girildi. Push işlemi uygulandı.
+== Yapılanlar
+
+* Tasarımda düzenlemeler yapıldı. Maaş,doğum tarihi ve nüsufa kayıtlı olduğu il bilgileri eklenip istendi. Tc kimlik ve doğum tarihi için sınırlandırılmalar oluşturuldu. Bu her xml çözünürlük boyutları için ayarlandı. 
+* AutoCompleteTextView kullanıldı. 
+* Bundle kullanılarak activityler arası data alışverişi yapıldı.
+
+== 1) Tasarımda düzenlemeler
+**activity_main.xml**
+
+[source,java]
+----
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Doğum Tarihiniz:"
+                android:textColor="@color/siyah" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:maxLength="10"
+                android:id="@+id/date"
+                android:hint="Buraya giriniz"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nüfusa Kayıtlı Olduğunuz İl:"
+                android:textColor="@color/siyah" />
+
+            <AutoCompleteTextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="1"
+                android:id="@+id/auto"
+                android:layout_below="@+id/textView"
+                android:hint="Buraya giriniz"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maaş Miktarı:"
+                android:textColor="@color/siyah" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/editText2"
+                android:hint="Buraya giriniz"/>
+----
+**Maaş,doğum tarihi ve nüsufa kayıtlı olduğu il bilgileri eklenip istendi. Ayrıca Tc kimlik no için 11 karakter sınırlaması, doğum tarihi için 10 karakter sınırlaması getirildi.**
+[source,java]
+----
+android:maxLength="11"
+----
+
+== 2)AutoCompleteTextView kullanıldı. 
+**MainActivity.java**
+[source,java]
+----
+AutoCompleteTextView iller=(AutoCompleteTextView)findViewById(R.id.auto);
+String[] Cihaz= getResources().getStringArray(R.array.cihaz);
+ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,Cihaz);
+iller.setAdapter(adapter);
+----
+**Activity_main.xml**
+[soruce,java]
+----
+           <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nüfusa Kayıtlı Olduğunuz İl:"
+                android:textColor="@color/siyah" />
+
+            <AutoCompleteTextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:completionThreshold="1"
+                android:id="@+id/auto"
+                android:layout_below="@+id/textView"
+                android:hint="Buraya giriniz"/>
+----
+**strings.xml**
+[soruce,java]
+----
+<resources>
+    <string name="app_name">KrediKartBasvuru</string>
+
+    <string-array name="cihaz">
+        <item>Ankara</item>
+        <item>Adana</item>
+        <item>Adıyaman</item>
+        <item>Afyonkarahisar</item>
+        <item>Ağrı</item>
+        <item>Amasya</item>
+        <item>Antalya</item>
+        ...
+        </string-array>
+</resources>
+----
+**AutoCompleteTextView kullanılarak girilen ilin ilk harfi yazıldığı an o harfle başlayan illerin listelenmesi sağlandı. strings.xml 'e iller girildi.** 
+
+== 3)Bundle kullanılarak activityler arası data alışverişi yapıldı.
+**AndroidManifest.xml**
+[source,java]
+----
+<activity android:name=".MainActivity"/>
+<activity
+    android:name=".other"
+    android:label="@string/app_name" >
+    <intent-filter>
+        <action android:name="com.deneme1.erel.kredikartbasvuru.OTHER" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+    </intent-filter>
+</activity>
+----
+**other.java**
+[source,java]
+----
+public class other  extends Activity {
+
+    TextView tv ;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.other);
+
+        tv = (TextView)findViewById(R.id.tv);
+
+
+        Bundle datas = getIntent().getExtras();
+
+        tv.setText(datas.getString("isim"));
+    }
+}
+----
+**other.xml**
+[source,java]
+----
+<TextView
+    android:id="@+id/text1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/colorPrimary"
+    android:textSize="20sp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center"
+    android:layout_marginTop="170dp"
+    android:text="Sayın"
+    />
+
+<TextView
+    android:id="@+id/tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/colorPrimaryDark"
+    android:textSize="20sp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center"
+    android:layout_marginTop="15dp"
+    />
+
+<TextView
+    android:id="@+id/text2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/colorPrimary"
+    android:textSize="20sp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center"
+    android:layout_marginTop="15dp"
+    android:text="İşleminiz Başarıyla"
+    />
+
+<TextView
+    android:id="@+id/text3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/colorPrimary"
+    android:textSize="20sp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center"
+    android:layout_marginTop="15dp"
+    android:text="Gerçekleştirilmiştir."
+    />
+----
+**MainActivity.java**
+
+[source,java]
+----
+private Intent intent;
+private Bundle bundle;
+private CountDownTimer countDownTimer;
+
+new CountDownTimer(10000, 10000) {
+        public void onTick(long millisUntilFinished) {
+        }
+        public void onFinish() {
+            intent = new Intent("com.deneme1.erel.kredikartbasvuru.OTHER");
+            bundle = new Bundle();
+            bundle.putString("isim", adSoyad.getText().toString());
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+    }.start();
+}
+----
+**Bundle kullanılarak alınan ad soyad bilgisi sonucu gönder butonuna tıklandıktan sonra açılan yeni sayfaya taşınmıştır. Örneğin Sayın Bengü Aydın şeklinde bir hitap oluşturulmuştur. O sayfada olumlu ya da olumsuz sonuç gösterilmiştir. CountDownTimer kullanmamın nedeni butona tıklandıktan sonra çıkan progressbarın bitmesini beklemektedir. Bitince yeni sayfa açılıp sonuç bilgisi verilmektedir. İntent ile geçiş sağlanmıştır.**
+
 
