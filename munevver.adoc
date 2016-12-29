@@ -1,1 +1,154 @@
-== Export işlemi yapılıp yorum satırı olarak nuamara isim eklendikten sonra push edildi
+:imagesdir: resimler
+
+
+= Münevver Turan  (120202081)
+
+# Kredi Kart Basvuru
+
+== Projede Yaptıklarım
+
+
+* Yatay ekran tasarımı için (layout-land)
+ çözünürlükler için : large,small,xlarge
+ Tablet ler için : 7 inch (sw600dp) ,10 inch(sw720dp)
+* Ad Soyad için id ler atandı  ve java kodlarında inflate edildi
+* Values te Dimens klasorü içine TextSize Ve Marginler Eklenerek .XML dosyalarında buradan referans alınarak çağrıldı.
+* Activity life Cycle uygulandı  ve Shared preferences ile etkinleştirilerek kullanıcı AD ,SOYAD ve  TCKimlik No bilgileri uygulama kapanırsa bile saklanıyor kullanıcı tekrar uygulamaya döndüğünde bu bilgileri tekrar girmek zorunda kalmıyor .
+* Farklı image  boyutları için farklı Drawable ' lar eklendi.
+* Farklı layout için tasarım yapıldı.
+
+
+
+
+
+== 1) Manifest İzinleri
+
+**AndroidManifest.xml'de ekran çözünürlükleri için izinler verildi.**
+
+[source,java]
+----
+
+<supports-screens
+    android:anyDensity="true"
+    android:largeScreens="true"
+    android:smallScreens="true"
+    android:xlargeScreens="true"/>
+----
+
+== 2) Ad-Soyad id Ataması
+
+
+
+== 3) Activity Life Cycle ve Shared Preferences
+
+**Activity life Cycle eklendi  ve Shared preferences ile etkinleştirilerek kullanıcı AD ,SOYAD ve  TCKimlik No bilgileri uygulama aniden  kapanırsa bile muhafaza eder ve kullanıcı tekrar uygulamaya kaldığı yerden başlamaya devam ettiğinde bu bilgileri tekrar girmek zorunda kalmıyor.**
+
+
+[source,java]
+----
+
+@Override
+protected void onStart() {
+    super.onStart();
+    updateFromSavedState();
+}
+
+@Override
+protected void onResume() {
+    super.onResume();
+}
+
+@Override
+protected void onPause() {
+    super.onPause();
+    saveDataFromCurrentState();
+}
+
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+}
+
+@Override
+protected void onStop() {
+    super.onStop();
+}
+
+protected void saveDataFromCurrentState() {
+    SharedPreferences preferences = getSharedPreferences(myid, actMode);
+    SharedPreferences.Editor editor = preferences.edit();
+    editor.putString("AdSoyad", adSoyad.getText().toString());
+    editor.putString("TC", tc.getText().toString());
+    editor.apply();
+}
+
+
+protected void updateFromSavedState() {
+
+    SharedPreferences myPrefs = getSharedPreferences(myid, actMode);
+
+    if ((myPrefs != null)) {
+
+        String kullaniciAdSoyad = myPrefs.getString("AdSoyad", "");
+        String kullaniciTc = myPrefs.getString("TC", "");
+
+        adSoyad.setText(kullaniciAdSoyad);
+        tc.setText(kullaniciTc);
+    }
+}
+protected void clearMyPreferences() {
+    SharedPreferences myPrefs = getSharedPreferences(myid, actMode);
+    SharedPreferences.Editor myEditor = myPrefs.edit();
+    myEditor.clear();
+    myEditor.apply();
+}
+----
+
+== 4)Dimens Klasörü
+Values te Dimens klasorü içine TextSize Ve Marginler Eklenerek .XML dosyalarında buradan referans alınarak çağrıldı.
+[source,xml]
+----
+
+<resources>
+   <1>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--  Small ekran için boyut  -->
+    <dimen name ="smalltextsize">12sp</dimen>
+    <dimen name="smalltextsizesmall">10sp</dimen>
+
+    <!--  xlarge ekran için boyut  -->
+    <dimen name ="xlargetextsize">28sp</dimen>
+    <dimen name="xlargetextsizexlarge">30sp</dimen>
+    <dimen name ="xlargemargin">15dp</dimen>
+
+    <!--  7 inch tablet ekran için boyut  -->
+    <dimen name ="yedi_inch_textsize">32sp</dimen>
+    <dimen name="yedi_inch_textsizexlarge">23sp</dimen>
+    <dimen name ="yedi_inch_margin">18dp</dimen>
+
+    <!--  10 inch tablet ekran için boyut  -->
+    <dimen name ="on_inch_textsize">36sp</dimen>
+    <dimen name="on_inch_textsizexlarge">30sp</dimen>
+    <dimen name ="on_inch_margin">20dp</dimen>
+
+</resources>
+
+----
+
+== 5) Farklı Çözünürlük(Resimler için)
+**Farklı image boyutları için farklı Drawable ' lar eklendi.**
+
+image::Drawable.PNG[]
+
+
+== 6) Farklı Ekran Boyutları(Layout için)
+
+**Farklı ekran boyutları için farklı Layout 'lar eklendi.**
+
+image::Layout.PNG[]
+
+
+
