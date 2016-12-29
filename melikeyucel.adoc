@@ -1,6 +1,263 @@
-130202034 Melike Yücel
+:imagesdir: resimler
 
-Yapılanlar
-Dosya export edildi.
+= MELİKE YÜCEL - 130202034
 
-İsim soyisim numaralar girildi. Push işlemi uygulandı.
+
+=== PROJEDEKİ GÖREVLERİ
+
+****
+* Web Servis için Retrofit Kütüphanesi Eklendi.
+* Onesignal Push Notification Kullanıldı.
+****
+==== [black]#RETROFİT#
+
+Öncelikle retrofit kütüphanesini uygulamamızda kullanabilmemiz için build.gradle kısmına aşağıda yazan kodları ekliyoruz.
+[source,java]
+----
+compile fileTree(include: ['*.jar'], dir: 'libs')
+compile 'com.squareup.retrofit2:retrofit:2.1.0'
+compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+----
+
+Daha sonra AndroidManifest.xml'de internet izni vermemiz gerekir.
+[source,java]
+----
+<uses-permission android:name="android.permission.INTERNET"/>
+----
+
+MainActivity.java 'da aşağıdaki değişiklikleri yaptık.
+
+[source,java]
+----
+import com.deneme1.erel.kredikartbasvuru.model.Register; <1>
+import com.deneme1.erel.kredikartbasvuru.service.ServiceManager;
+import java.util.ArrayList;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+String TCKN = tc.getText().toString();  <2>
+String ad_Soyad = adSoyad.getText().toString();
+Register register = new Register(TCKN, ad_Soyad, cinsiyet, tercih);
+sendForm(register);
+
+ private void sendForm(Register register){  <3>
+    ServiceManager.ServiceRequest apiService = 
+ ServiceManager.getClient().create(ServiceManager.ServiceRequest.class);
+    Call<Boolean> call = apiService.addForm(register);
+    call.enqueue(new Callback<Boolean>() {
+        @Override
+        public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+            if (response.isSuccessful()) {
+                Toast.makeText(getApplicationContext(),"Form kaydedildi.",Toast.LENGTH_SHORT).show();
+             }else{
+  
+  Toast.makeText(getApplicationContext(),"Hata",Toast.LENGTH_SHORT).show();
+            }
+        }
+  }
+----
+
+****
+*1* numara ile başlayan kod bloğunda gerekli kütüphaneler import edildi.
+*2* numara ile başlayan kod bloğu kullanıcıdan aldığımız TCKN, ad_Soyad, cinsiyet, tercih Register modeline eklendi.
+*3* numaralı kod bloğunda retrofit aracılığı ile servis çağrısı başlıyor ve daha önce doldurduğumuz register modelini gönderiyoruz. servisten boolean tipinde cevap bekliyoruz. success durumunda onResponse fonksiyonu çalışacaktır
+
+****
+
+Yukarıda Register diye tanımladığımız model şu şekilde oluşturulmuştur.
+
+[source,java]
+
+----
+public class Register {
+
+    private String TCKN;
+    private String adSoyad;
+    private boolean cinsiyet;
+    private ArrayList<String> tercih;
+
+    public Register(String TCKN, String adSoyad, boolean cinsiyet, ArrayList<String> tercih) {
+        this.adSoyad = adSoyad;
+        this.cinsiyet = cinsiyet;
+        this.TCKN = TCKN;
+        this.tercih = tercih;
+    }
+    public String getAdSoyad() {
+        return adSoyad;
+    }
+    public void setAdSoyad(String adSoyad) {
+        this.adSoyad = adSoyad;
+    }
+    public boolean isCinsiyet() {
+        return cinsiyet;
+    }
+    public void setCinsiyet(boolean cinsiyet) {
+        this.cinsiyet = cinsiyet;
+    }
+    public String getTCKN() {
+        return TCKN;
+    }
+    public void setTCKN(String TCKN) {
+        this.TCKN = TCKN;
+    }
+    public ArrayList<String> getTercih() {
+        return tercih;
+    }
+    public void setTercih(ArrayList<String> tercih) {
+        this.tercih = tercih;
+    }
+}
+
+----
+ServiceManager.java sınıfında retrofit bilgileri tanımlanır. servis çağrıları için gereken linkleri de buradaki interface i kullanarak tanımladık. 
+
+[source,java]
+
+----
+
+public class ServiceManager {
+    private static Retrofit retrofit = null;
+    public static Retrofit getClient() {
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl("http://www.melikeyucel.com.tr")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit;
+    }
+
+    public interface ServiceRequest {
+        @POST("/services/register.php")
+        Call<Boolean> addForm(@Body Register register);
+    }
+}
+
+----
+
+==== [black]#ONESİGNAL#
+****
+Uygulamamızda https://onesignal.com/[Onesignal] sitesinin sunmuş olduğu push sistemini kullandık. Android, ios, unity gibi birçok sdk desteği ve mükemmel bir gönderim/raporlama paneli bulunmaktadır. Sitede bulunan https://documentation.onesignal.com/docs/[Documentation & SDK] linkten kurulumu hakkında bilgi edinebilirsiniz.
+****
+[source,java]
+----
+
+manifestPlaceholders = [manifestApplicationId          : "${applicationId}", <1>
+                        onesignal_app_id               : "4801aaf0-0a0b-42d3-a9c7-34f31abdc164",
+                        onesignal_google_project_number: "319859215737"]
+                        
+....
+
+compile 'com.onesignal:OneSignal:3.4.2'
+compile 'com.google.android.gms:play-services-gcm:9.8.0'
+
+----
+****
+1 numaralı kod bloğunda Onesignal.com üzerinden oluşturduğumuz App ID ve google firebase'den oluşturduğumuz projenin numarasını bu alana ekliyoruz. Onesignal ve GCM kütüphanelerini de gradle'a eklememiz gerekiyor
+
+****
+[source,java]
+----
+
+
+public class KKApplication extends Application {
+
+    public static PushNotification pushNotification = null; <1>
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        OneSignal.startInit(this)
+                .setNotificationReceivedHandler(new notificationOpenedHandler())
+                .init();
+    }
+
+    private class notificationOpenedHandler implements OneSignal.NotificationReceivedHandler {
+
+        @Override
+        public void notificationReceived(OSNotification notification) {
+            String title = notification.payload.title;
+            String message = notification.payload.body;
+
+            if (message != null) {
+                pushNotification = new PushNotification(title, message);
+            }
+        }
+    }
+
+}
+
+----
+****
+Application class'ında OneSignal'dan gelen push notification'ı yine kendi oluşturduğumuz modele ekleyip değişkene aktardık (pushNotification)
+****
+
+
+[source,java]
+----
+import android.content.DialogInterface; <1>
+import android.support.v7.app.AlertDialog;
+
+....
+
+if(KKApplication.pushNotification != null){  <2>
+        AlertDialog alertDialog = new AlertDialog.Builder(Giris.this).create();
+        alertDialog.setTitle(KKApplication.pushNotification.getTitle());
+        alertDialog.setMessage(KKApplication.pushNotification.getMessage());
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Tamam",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        KKApplication.pushNotification = null;
+                        startActivity(new Intent(Giris.this, MainActivity.class));
+                        finish();
+                    }
+                });
+        alertDialog.show();
+    }else {
+        Thread gec = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    this.sleep(2000);
+                } catch (InterruptedException e) {
+
+                } finally {
+                    startActivity(new Intent(Giris.this, MainActivity.class));
+                }
+            }
+
+        };
+
+        gec.start();
+    }
+}
+
+
+----
+****
+Push notification geldiği zaman uygulamadaki KKApplication içinde bulunan pushNotification değişkenini doldurmuştuk. Push notification'a tıklandığında ise uygulamanın ilk açılış class'ı olan Giris'e bu kodları ekledik. pushNotification değişkeni dolu ise bir alert dialog oluşturup başlık ve mesaj içeriğini kullanıcıya gösteriyoruz.
+****
+****
+Push konsoldan eklendiğinde sırayla uygulamada aşağıdaki gibi görüntülenmektedir.
+****
+image::push2.png[Push Ekleme,align="center"]
+****
+* OneSignal.com'un sitesinde push gönderimi yapılan kısım
+****
+image::push3.jpeg[Bildirim Çubuğunda Görünümü,align="left"]
+****
+* Kullanıcının telefonundaki bildirim çubuğunda push'un gösterimi
+****
+image::push1.jpeg[Push Ekranı,260,540,align="left"]
+****
+
+****
+
+
+
+
+ 
