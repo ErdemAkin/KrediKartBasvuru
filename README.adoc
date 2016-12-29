@@ -17,7 +17,7 @@
 Kredi kartı başvurusu yapmak isteyen bir kullanıcı kişisel bilgilerini girerek
 işlemi onaylar. Daha sonra web servisle kişinin maaş ve yaş kontrolü yapılır ve
 başvurusunun kabul sonucu kullanıcıya gösterilir. Böyle bir senaryoya sahip projemizde
-kullanılan companent ve özellikler aşağıdaki gibidir.
+kullanılan component ve özellikler aşağıdaki gibidir.
 
 * Tablet ve telefonlarda hem yatay hem de dikey olarak çalışacak şekilde LAYOUT tasarımlarının yapıldı.
 * Layoutlar ve ScroolView kullanıldı.
@@ -29,7 +29,7 @@ kullanılan companent ve özellikler aşağıdaki gibidir.
 * Thread kullanıldı.
 * AsyncTask kullanıldı.
 * Soap Web Servis kullanıldı.
-* Firebase Notification kullanıldı.
+* OneSignal Push Notification kullanıldı.
 
 === 1) Splash Screen
 
@@ -57,3 +57,8 @@ maaş ve doğum günü değişkenleri kullanılarak web servise maaş ve yaş de
 Gönderilen bu değişkenlerden dönen sonuç bir önceki ekranda alınan isim değişkeni ile birlikte ekrana yazılıyor.
 
 image::6.png[WebService,360,640,align="center"]
+
+=== 7)Push Ekranı
+Konsoldan push gönderildiğinde,kullanıcının telefonunda bildirim çubuğunda gözükmekte, buna tıklanıldığında ise başlık ve içerik kullanıcıya gösterilmektedir.
+
+image::push1.jpeg[Push Ekranı,360,640,align="center"]
