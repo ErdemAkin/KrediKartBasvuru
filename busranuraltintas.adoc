@@ -1,5 +1,110 @@
 130202027 Büşra Nur ALTINTAŞ +
 
-.Yapılanlar
+# Kredi Kart Basvuru
+
+== Projede Yaptıklarım
 * Dosyalar Export edildi
-* Yorum satırı eklenip push işlemi yapıldı.
+* Projenin arayüz kısmı hazırlandı. 
+* Projedeki hatalar düzeltilip tekrar commitlendi.
+
+=== Projeninn arayüzü hazırlanması 
+Projemizde doldurulması planlanan yerler için componentler eklenmesiyle başladık ilk olarak import işlemi yapıldı. 
+
+[source,java]
+----
+import android.support.v7.app.AppCompatActivity;
+
+ import android.view.View;
+ import android.widget.Button;
+ import android.widget.CheckBox;
+ import android.widget.EditText;
+ import android.widget.RadioButton;
+ import android.widget.RadioGroup;
+ import android.widget.Toast;
+----
+ 
+Ardından larayüzde kullanıcı ile rtkileşime geçecek arayüz kısmı tasarımı yapıldı. Kullanılan taraçlar aşağıda listelenmiştir.
+
+ * ScroolView
+ * EditText
+ * Chekbox
+ * Radio button
+ * Linear Layout
+ * TextView
+  
+[source,java]
+----
+<RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/yedi_inch_textsizexlarge"
+                android:layout_marginTop="@dimen/yedi_inch_margin"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:id="@+id/rgroup"
+                >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KADIN"
+                    android:textSize="@dimen/yedi_inch_textsizexlarge"
+                    android:layout_marginTop="@dimen/yedi_inch_margin"
+                    android:id="@+id/rbutton1"
+                    />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ERKEK"
+                    android:textSize="@dimen/yedi_inch_textsizexlarge"
+                    android:layout_marginTop="@dimen/yedi_inch_margin"
+                    android:id="@+id/rbutton2"
+                    />
+            </RadioGroup>
+----
+Burada radio button seçeneğine basarken sadece bir seçenek kullanmamız için RadioGroup kullanmamız gerekir. Cinsiyet ya da medeni hal gibi soruların sadece bir crvabı vardir. 
+
+[source,java]
+----
+ int butonid = rg.getCheckedRadioButtonId();   <1>
+                String text = "";
+                switch (butonid) {
+                    case R.id.rbutton1: {
+                        text = "KADIN";
+                        cinsiyet = false;
+                        break;
+                    }
+                    case R.id.rbutton2: {
+                        text = "ERKEK ";
+                        cinsiyet = true;
+                        break;
+                    }
+                }
+----
+*1* numara ile başlayan kod bloğunda radiobuttonun id si çektik java fonksiyonu ile
+
+Bütün kod bloğunu scrollview içine aldık çünkü telefon ekrenında sığmayan öğeler kaydırılsın diye.
+Ardından Kredi kartı için birden çok seçim istenmesi gerekiyordu bu yüzden chekboxlar ile seçim yaptırdık.
+[source,java]
+----
+if (cb1.isChecked()) {
+                    text = text + " " + cb1.getText().toString() + "\n";
+                    tercih.add(cb1.getText().toString());
+                }
+                if (cb2.isChecked()) {
+                    text = text + " " + cb2.getText().toString() + "\n";
+                    tercih.add(cb2.getText().toString());
+                }
+                if (cb3.isChecked()) {
+                    text = text + " " + cb3.getText().toString() + "\n";
+                    tercih.add(cb3.getText().toString());
+                }
+                if (cb4.isChecked()) {
+                    text = text + " " + cb4.getText().toString() + "\n";
+                    tercih.add(cb4.getText().toString());
+                }
+                if (cb5.isChecked()) {
+                    text = text + " " + cb5.getText().toString() + "\n";
+                    tercih.add(cb5.getText().toString());
+                }
+----
