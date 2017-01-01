@@ -23,9 +23,9 @@ import android.support.v7.app.AppCompatActivity;
  import android.widget.Toast;
 ----
  
-Ardından larayüzde kullanıcı ile rtkileşime geçecek arayüz kısmı tasarımı yapıldı. Kullanılan taraçlar aşağıda listelenmiştir.
+Ardından arayüzde kullanıcı ile etkileşime geçecek arayüz kısmı tasarımı yapıldı. Kullanılan araçlar aşağıda listelenmiştir.
 
- * ScroolView
+ * ScrollView
  * EditText
  * Chekbox
  * Radio button
@@ -62,7 +62,7 @@ Ardından larayüzde kullanıcı ile rtkileşime geçecek arayüz kısmı tasar�
                     />
             </RadioGroup>
 ----
-Burada radio button seçeneğine basarken sadece bir seçenek kullanmamız için RadioGroup kullanmamız gerekir. Cinsiyet ya da medeni hal gibi soruların sadece bir crvabı vardir. 
+Burada radio button seçeneğine basarken sadece bir seçenek kullanmamız için RadioGroup kullanmamız gerekir. Cinsiyet ya da medeni hal gibi soruların sadece bir cevabı vardir. 
 
 [source,java]
 ----
